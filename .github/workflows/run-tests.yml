@@ -16,7 +16,6 @@ jobs:
     timeout-minutes: 10
 
     strategy:
-      fail-fast: true
       matrix:
         os: [ubuntu-latest]
         php: [8.3, 8.2]
