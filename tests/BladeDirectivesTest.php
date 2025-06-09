@@ -53,7 +53,7 @@ it('can display an image using a variable with an relative path', function () {
 
     Pdf::view('blade-directives.body')
         ->headerView('blade-directives.image-header-using-a-variable', [
-            'logo' => "../../../../../../../../../$logoPath",
+            'logo' => "$logoPath",
         ])
         ->save($this->targetPath);
 
