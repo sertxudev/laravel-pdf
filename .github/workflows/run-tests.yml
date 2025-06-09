@@ -1,14 +1,6 @@
 name: run-tests
 
-on:
-  push:
-    paths:
-      - '**.php'
-      - '.github/workflows/run-tests.yml'
-      - 'phpunit.xml.dist'
-      - 'composer.json'
-      - 'composer.lock'
-  workflow_call:
+on: [push, pull_request]
 
 jobs:
   test:
@@ -21,9 +13,11 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         php: [8.4, 8.3, 8.2]
-        laravel: ['11.*', '12.*']
+        laravel: ['10.*', '11.*', '12.*']
         stability: [prefer-lowest, prefer-stable]
         include:
+          - laravel: 10.*
+            testbench: ^8.0
           - laravel: 11.*
             testbench: 9.*
           - laravel: 12.*
